@@ -13,12 +13,6 @@ export const useForm = () => {
 
     const [errors, setErrors] = useState({})
 
-    const handleFocus = (e: { target: { name: string; }; }) => {
-        setValues({
-            ...values,
-            focus: (e.target.name === 'cardSecurityCode') ? 'cvc' : e.target.name
-        });
-    }
 
     const handleChange = (e: { target: { name: string; value: number; }; }) => {
         const { name, value } = e.target
@@ -33,5 +27,5 @@ export const useForm = () => {
         setErrors('Error')
     };
 
-    return { handleChange, handleFocus, handleSubmit, values, errors };
+    return { handleChange, handleSubmit, values, errors };
 };

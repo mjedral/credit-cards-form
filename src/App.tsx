@@ -6,7 +6,7 @@ import { GlobalStyles } from './consts/globalStyles/globalStyles';
 import { useForm } from './hooks/useForm';
 
 function App() {
-  const { handleChange, handleFocus, handleSubmit, values, errors } = useForm();
+  const { handleChange, handleSubmit, values, errors } = useForm();
 
   return (
     <>
