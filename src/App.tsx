@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { StyledCardWrapper } from './components/CardWrapper/StyledCardWrapper';
+import { Container } from './components/Container/Container';
+import { Layout } from './components/Layout/Layout';
+import { GlobalStyles } from './consts/globalStyles/globalStyles';
+import { useForm } from './hooks/useForm';
 
 function App() {
+  const { handleChange, handleFocus, handleSubmit, values, errors } = useForm();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <GlobalStyles/>
+    <Layout>
+      <Container>
+      <StyledCardWrapper>
+        <label>
+            <span >Name on Card</span>
+            <input name="nameoncard" type="text"/>
+        </label>
+        <label>
+            <span >Card Number</span>
+            <input name="cardnumber" type="text" placeholder="1234 1234 1234 1234"/>
+        </label>
+        <label >
+            <span >Exp. Date</span>
+            <input name="experationdate" type="text" placeholder="MM/YYYY"/>
+        </label>
+        <label >
+            <span >CVC</span>
+            <input name="cvcnumber" type="text" placeholder="CVC"/>
+        </label>
+     </StyledCardWrapper>
+     <button>Pay</button>
+      </Container>
+    </Layout>
+    </>
   );
 }
 
